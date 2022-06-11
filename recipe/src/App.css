@@ -1,24 +1,28 @@
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
 .card_user {
+  height: 380px;
   width: 210px;
-  /* height: 330px; */
   margin: auto;
-  /* align-items: center; */
-  /* border: 1px solid red; */
   padding: 10px 10px 0px 10px;
+  cursor: pointer;
+  opacity: 0.7;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    rgba(133, 127, 127, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: 1s;
 }
 
 .user_image {
   height: 80%;
   width: 98%;
 }
-.detail_user {
-  height: 40px;
-  font-weight: bold;
-
-  padding: 1%;
+.button_user {
+  width: 100%;
 }
 
 .food_container_user {
@@ -28,14 +32,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: auto;
-  height: 90vh;
+  height: 83vh;
   overflow-y: scroll;
+  row-gap: 15px;
   justify-content: space-around;
-  row-gap: 10px;
-}
-
-.food_container_user::-webkit-scrollbar {
-  display: none;
 }
 
 .logo_image {
@@ -45,10 +45,15 @@
 .user_nav {
   width: 88%;
   margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  padding-bottom: 10px;
+  border-radius: 8px;
 }
 .input_user {
   width: 60%;
   padding: 4px 0px 4px 0px;
+  text-align: center;
 }
 .logo_container {
   display: flex;
@@ -56,4 +61,65 @@
   column-gap: 4px;
   align-items: center;
   padding: 2px;
+}
+.logo_container > p {
+  font-weight: bold;
+  margin-top: 8px;
+}
+.offcanvas_user {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  height: 65vh;
+  border-radius: 8px;
+  margin-top: 8vh;
+  margin-right: 90px;
+}
+
+.props_li {
+  width: 90%;
+  text-align: center;
+  padding: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  /* transition: 2s; */
+}
+.logo_container {
+  cursor: pointer;
+}
+
+.card_user:hover {
+  opacity: 1;
+  transition: 1s;
+}
+.props_li:active {
+  color: blue;
+}
+
+.food_container_user::-webkit-scrollbar,
+.offcanvas_user::-webkit-scrollbar {
+  display: none;
+}
+
+.user_card_detail {
+  width: 65%;
+  border-radius: 8px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+  .logo_container > p {
+    display: none;
+  }
+  .food_container_user {
+    height: 88vh;
+  }
+  .offcanvas_user {
+    margin-right: 10px;
+  }
+  .user_card_detail {
+    width: 110%;
+    border-radius: 8px;
+    margin: auto;
+  }
 }

@@ -1,0 +1,41 @@
+.view_container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  height: 88vh;
+  overflow-y: scroll;
+  row-gap: 10px;
+}
+.card_container_view {
+  margin-top: 20px;
+  width: 88%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 20px;
+  justify-content: space-around;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 10px;
+}
+.title_view {
+  font-size: large;
+  font-weight: bold;
+  color: rgba(144, 127, 127, 0.744);
+}
+.content_view {
+  font-size: medium;
+  font-weight: 600;
+  color: rgba(130, 81, 81, 0.744);
+}
+.ingrident_container {
+  width: 88%;
+  margin: auto;
+}
+
+.view_container::-webkit-scrollbar {
+  display: none;
+}
