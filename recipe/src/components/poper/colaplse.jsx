@@ -17,6 +17,7 @@ export const Colapse = ({ props, filter, setFilter }) => {
         data-bs-target={"#" + id}
         aria-expanded="false"
         aria-controls={id}
+        style={{ fontWeight: "bold" }}
       >
         {temp.join("")}
       </button>
