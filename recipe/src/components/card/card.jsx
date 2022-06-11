@@ -21,6 +21,8 @@ export const Card = ({ data, i }) => {
     SingleData(data);
   }
 
+  let Lable = data.recipe.label.split(" ");
+
   return (
     <div className="card card_user">
       <img
@@ -33,7 +35,18 @@ export const Card = ({ data, i }) => {
       />
 
       <div className="card-body">
-        <h6 className="card-title">{data.recipe.label}</h6>
+        <h6 className="card-title">
+          {Lable.length > 4
+            ? Lable[0] +
+              " " +
+              Lable[1] +
+              " " +
+              Lable[2] +
+              " " +
+              Lable[3] +
+              "..."
+            : Lable.join(" ")}
+        </h6>
 
         <div className="card-text ">
           <button
