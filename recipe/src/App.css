@@ -5,7 +5,7 @@
   row-gap: 8px;
 }
 .card_user {
-  height: 380px;
+  height: 320px;
   width: 210px;
   margin: auto;
   padding: 10px 10px 0px 10px;
@@ -18,8 +18,9 @@
 }
 
 .user_image {
-  height: 80%;
+  height: 98%;
   width: 98%;
+  margin-bottom: 1px;
 }
 .button_user {
   width: 100%;

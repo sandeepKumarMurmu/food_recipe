@@ -31,6 +31,7 @@ export const Card = ({ data, i }) => {
           navigateToDetailPage();
         }}
       />
+
       <div className="card-body">
         <h6 className="card-title">{data.recipe.label}</h6>
 

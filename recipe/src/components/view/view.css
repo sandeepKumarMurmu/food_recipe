@@ -1,12 +1,12 @@
 .view_container {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+  padding: 10px 10px 10px 10px;
+
   width: 90%;
   margin: auto;
-  height: 88vh;
+  height: 78vh;
   overflow-y: scroll;
-  row-gap: 10px;
+
+  margin-top: 4vh;
 }
 .card_container_view {
   margin-top: 20px;
@@ -20,6 +20,7 @@
   margin: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 10px;
+  margin-bottom: 20px;
 }
 .title_view {
   font-size: large;
@@ -39,3 +40,16 @@
 .view_container::-webkit-scrollbar {
   display: none;
 }
+@media only screen and (max-width: 1000px) {
+  .image_container_view {
+    width: 98%;
+    display: grid;
+    align-items: center;
+    margin: auto;
+    /* border: 1px solid red; */
+  }
+  .image_container_view img {
+    margin: auto;
+    width: 95%;
+  }
+} ;

@@ -6,7 +6,9 @@ export const ViewCard = ({ singleData }) => {
   return (
     <>
       <div className="card_container_view">
-        <img src={singleData.recipe.images.REGULAR.url} alt="" />
+        <div className="image_container_view">
+          <img src={singleData.recipe.images.REGULAR.url} alt="" style={{}} />
+        </div>
         <div>
           <h5>{singleData.recipe.label}</h5>
           <ul>
