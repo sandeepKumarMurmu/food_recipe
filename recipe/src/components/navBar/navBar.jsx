@@ -18,8 +18,8 @@ export const NavBar = () => {
   const nav = useNavigate();
   const dispatch = useDispatch();
   const { AllData } = bindActionCreators(ActionCreators, dispatch);
-  const [filter, setFilter] = useState({ q: "salad" });
-  const [query, setQuery] = useState([]);
+  const [filter, setFilter] = useState({});
+
   const [timeOut, setTimeOut] = useState();
 
   //handel Change Function
@@ -37,26 +37,6 @@ export const NavBar = () => {
         });
     }, 500);
     setTimeOut(timeOutId);
-  }
-
-  // query management
-  function queryArrangement(filter, setQuery, query) {
-    for (var key in filter) {
-      setQuery([...query, key + "=" + filter[key]]);
-    }
-  }
-
-  //get on filter
-  function getDataOnFilter(query) {
-    axios
-      .get(
-        `https://api.edamam.com/api/recipes/v2?type=public&app_id=f7048fdb&app_key=%205e15ab95d8a05906e2b81cd43d450fc5&${query.join(
-          "&"
-        )}`
-      )
-      .then(({ data }) => {
-        AllData([...data.hits]);
-      });
   }
 
   //condition for filter button
@@ -118,13 +98,7 @@ export const NavBar = () => {
               <Colapse props={mealType} filter={filter} setFilter={setFilter} />
               <Colapse props={diet} filter={filter} setFilter={setFilter} />
               <Colapse props={dishType} filter={filter} setFilter={setFilter} />
-              <Button
-                filter={filter}
-                queryArrangement={queryArrangement}
-                setQuery={setQuery}
-                query={query}
-                getDataOnFilter={getDataOnFilter}
-              />
+              <Button filter={filter} />
             </div>
           </div>
         </div>

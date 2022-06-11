@@ -6,6 +6,7 @@ export const Colapse = ({ props, filter, setFilter }) => {
 
   //handel filter function
   function handelFilter(ele) {
+    
     setFilter({ ...filter, [ele.type]: ele.APIParameter });
   }
   return (

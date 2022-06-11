@@ -16,3 +16,13 @@ export const SingleData = (x) => {
     });
   };
 };
+
+//query management
+export const queryManagement=(x) => {
+  return (dispatch) => {
+    dispatch({
+      type: "QUERY",
+      payload: x,
+    });
+  };
+};
