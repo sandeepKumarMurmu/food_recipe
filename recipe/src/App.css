@@ -124,3 +124,17 @@
     margin: auto;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .food_container_user {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .input_user {
+    width: 30%;
+    text-align: center;
+  }
+} ;
