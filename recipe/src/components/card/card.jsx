@@ -21,14 +21,16 @@ export const Card = ({ data, i }) => {
     SingleData(data);
   }
 
+  const nullImage =
+    "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg";
   let Lable = data.recipe.label.split(" ");
 
   return (
     <div className="card card_user">
       <img
-        src={data.recipe.images.REGULAR.url}
+        src={data.recipe.images.REGULAR.url || nullImage}
         className="card-img-top user_image"
-        alt="..."
+        alt="meal image"
         onClick={() => {
           navigateToDetailPage();
         }}

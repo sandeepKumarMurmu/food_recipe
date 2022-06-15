@@ -24,11 +24,12 @@ export const Button = ({ filter }) => {
     }
 
     queryManagement(arr);
+    console.log(QueryReducer);
   }
 
   //get on filter
   function getDataOnFilter() {
-    console.log(QueryReducer);
+ 
     axios
       .get(
         `https://api.edamam.com/api/recipes/v2?type=public&app_id=f7048fdb&app_key=%205e15ab95d8a05906e2b81cd43d450fc5&${QueryReducer.join(
