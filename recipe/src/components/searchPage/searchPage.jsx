@@ -8,18 +8,25 @@ import { Card } from "../card/card";
 //main render function
 export const SearchPage = () => {
   const temp = useSelector((state) => state.AllDataReducer);
-  const [data, setData] = useState([]);
+
+  const [data, setData] = useState({
+    data: [],
+    status: false,
+    message: "Please search for recipe ...",
+  });
 
   useEffect(() => {
-    setData([...temp]);
+    setData(temp);
   }, [temp]);
 
   return (
     <>
       <div className="food_container_user">
-        {data.length !== 0 &&
-          data.map((ele, i) => <Card key={i} data={ele} i={i} />)}
-        {data.length === 0 && <h1>please search for meal</h1>}
+        {data.status ? (
+          data.data.map((ele, i) => <Card key={i} data={ele} i={i} />)
+        ) : (
+          <h1>{data.message}</h1>
+        )}
       </div>
     </>
   );

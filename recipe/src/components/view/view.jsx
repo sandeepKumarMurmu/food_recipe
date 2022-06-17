@@ -10,15 +10,17 @@ import { RecipeDetail } from "./recipeDetail";
 
 export const ViewPage = () => {
   const { SingleReducer: singleData } = useSelector((state) => state);
+  console.log(singleData.data);
+  // return <h1>connected view</h1>;
 
   return (
     <>
       <div className="view_container">
-        <ViewCard singleData={singleData} />
+        <ViewCard singleData={singleData.data} />
 
         <div className="ingrident_container">
-          <h4>Ingredients</h4>
-          <RecipeDetail singleData={singleData} />
+          <h4 style={{ width: "100%", textAlign: "center" }}>Ingredients</h4>
+          <RecipeDetail singleData={singleData.data} />
         </div>
       </div>
     </>

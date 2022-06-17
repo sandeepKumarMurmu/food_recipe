@@ -2,7 +2,7 @@
 //importing library property / methodes
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useNavigate } from "react-router-dom";
 //importing components
@@ -12,42 +12,65 @@ import { ActionCreators } from "../dataStore/store/actionCreator";
 
 //important Datas
 import { health, mealType, dishType, diet } from "../importantData/importanT";
+import { useEffect } from "react";
 
 //renderning function
 export const NavBar = () => {
+  const check = useSelector((state) => state.SingleReducer);
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const { AllData } = bindActionCreators(ActionCreators, dispatch);
-  const [filter, setFilter] = useState({});
+  const { AllData, queryManagement, SingleData } = bindActionCreators(
+    ActionCreators,
+    dispatch
+  );
 
   const [timeOut, setTimeOut] = useState();
+  const [navState, setNavState] = useState(false);
 
   //handel Change Function
   function handelChange(e) {
     clearTimeout(timeOut);
-    setFilter({ q: e.target.value });
-
+    AllData({ data: [], message: "Getting data .....", status: false });
     const timeOutId = setTimeout(() => {
       axios
         .get(
           `https://api.edamam.com/api/recipes/v2?type=public&q=${e.target.value}&app_id=f7048fdb&app_key=%205e15ab95d8a05906e2b81cd43d450fc5`
         )
         .then(({ data }) => {
-          AllData([...data.hits]);
+          if (data.hits.length != 0) {
+            queryManagement({ q: e.target.value });
+            AllData({
+              data: [...data.hits],
+              message: "Getting data .....",
+              status: true,
+            });
+          } else {
+            AllData({
+              data: [],
+              message:
+                "No data found Please check spelling or try other Recipe .....",
+              status: false,
+            });
+          }
         });
     }, 500);
     setTimeOut(timeOutId);
   }
 
+  useEffect(() => {
+    setNavState(check.status);
+  }, [check.status]);
+
   //condition for filter button
 
   return (
-    <nav className="navbar navbar-light bg-light user_nav">
+    <nav className="navbar navbar-light bg-dark user_nav">
       <div className="container-fluid">
         <div
           className="logo_container"
           onClick={() => {
             nav("/");
+            SingleData({ ...check, status: false });
           }}
         >
           <img
@@ -58,25 +81,30 @@ export const NavBar = () => {
           <p>Recipe Search</p>
         </div>
 
-        <input
-          className="form-control input_user"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          onChange={(e) => {
-            handelChange(e);
-          }}
-        />
+        {!navState && (
+          <input
+            className="form-control input_user"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            onChange={(e) => {
+              handelChange(e);
+            }}
+          />
+        )}
 
-        <button
-          className="btn btn-primary"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight"
-        >
-          Filter
-        </button>
+        {!navState && (
+          <button
+            className="btn btn-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+          >
+            Filter
+          </button>
+        )}
+
         <div
           className="offcanvas offcanvas-end offcanvas_user "
           tabIndex="-1"
@@ -94,11 +122,11 @@ export const NavBar = () => {
           </div>
           <div className="offcanvas-body ">
             <div className="d-grid gap-2">
-              <Colapse props={health} filter={filter} setFilter={setFilter} />
-              <Colapse props={mealType} filter={filter} setFilter={setFilter} />
-              <Colapse props={diet} filter={filter} setFilter={setFilter} />
-              <Colapse props={dishType} filter={filter} setFilter={setFilter} />
-              <Button filter={filter} />
+              <Colapse props={health} />
+              <Colapse props={mealType} />
+              <Colapse props={diet} />
+              <Colapse props={dishType} />
+              <Button />
             </div>
           </div>
         </div>

@@ -1,4 +1,14 @@
-export const Colapse = ({ props, filter, setFilter }) => {
+//importing library property / methodes
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+
+//importing components
+import { ActionCreators } from "../dataStore/store/actionCreator";
+
+export const Colapse = ({ props }) => {
+  const dispatch = useDispatch();
+  const tempQuery = useSelector((state) => state.QueryReducer);
+  const { queryManagement } = bindActionCreators(ActionCreators, dispatch);
   const id = props[0].type;
   let temp = id.split("");
 
@@ -6,8 +16,8 @@ export const Colapse = ({ props, filter, setFilter }) => {
 
   //handel filter function
   function handelFilter(ele) {
-    
-    setFilter({ ...filter, [ele.type]: ele.APIParameter });
+    const { type, APIParameter } = ele;
+    queryManagement({ ...tempQuery, [type]: APIParameter });
   }
   return (
     <>
