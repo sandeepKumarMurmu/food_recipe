@@ -8,6 +8,7 @@ import { ActionCreators } from "../dataStore/store/actionCreator";
 
 //render function for search card
 export const Card = ({ data, i }) => {
+  console.log(data);
   const nav = useNavigate();
   const dispatch = useDispatch();
   const { SingleData } = bindActionCreators(ActionCreators, dispatch);
@@ -26,14 +27,16 @@ export const Card = ({ data, i }) => {
   let Lable = data.recipe.label.split(" ");
 
   return (
-    <div className="card card_user">
+    <div
+      className="card  card_user"
+      onClick={() => {
+        navigateToDetailPage();
+      }}
+    >
       <img
         src={data.recipe.images.REGULAR.url || nullImage}
         className="card-img-top user_image"
         alt="meal image"
-        onClick={() => {
-          navigateToDetailPage();
-        }}
       />
 
       <div className="card-body">
@@ -50,10 +53,26 @@ export const Card = ({ data, i }) => {
             : Lable.join(" ")}
         </h6>
 
-        <div className="card-text ">
-          <button className="btn btn-secondary button_user">Detail</button>
+        <div className="userContent">
+          <span
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title={"Calories" + "  " + Math.round(data.recipe.calories)}
+          >
+            Calories
+          </span>
+          <span> || </span>
+          <span
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title={"Total ingredients " + data.recipe.ingredients.length}
+          >
+            Ingredients
+          </span>
         </div>
       </div>
     </div>
   );
 };
+
+// button_user

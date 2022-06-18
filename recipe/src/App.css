@@ -4,32 +4,30 @@ body {
   color: #ffe5b4;
 }
 .App {
-  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: 8px;
 }
 .card_user {
+  color: rgb(118, 116, 112);
   height: 330px;
   width: 210px;
   margin: auto;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 10px 10px 10px;
   cursor: pointer;
-
+  opacity: 0.8;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(133, 127, 127, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transition: 1s;
-  background-color: black;
+  transition: 2s;
+  background-color: rgb(39, 26, 26);
 }
 
 .user_image {
+  filter: grayscale(40%);
   height: 98%;
   width: 98%;
   margin-bottom: 1px;
-}
-.button_user {
-  width: 100%;
 }
 
 .food_container_user {
@@ -77,7 +75,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-  height: 65vh;
+  /* height: 65vh; */
   border-radius: 8px;
   margin-top: 8vh;
   margin-right: 90px;
@@ -96,8 +94,11 @@ body {
 }
 
 .card_user:hover {
-  opacity: 0.7;
-  transition: 1s;
+  transition: 600ms;
+  transform: scale(1.05, 1.05);
+  opacity: 1;
+  background-color: black;
+  color: white;
 }
 .props_li:active {
   color: blue;
@@ -107,13 +108,60 @@ body {
 .offcanvas_user::-webkit-scrollbar {
   display: none;
 }
-
-/* .user_card_detail {
-  width: 65%;
-  border-radius: 8px;
+.card-title {
+  text-align: center;
+}
+.userContent,
+.card-body {
+  padding: 1.5%;
+  font-weight: bold;
+  width: 98%;
   margin: auto;
-} */
+  text-align: center;
+  transition: 3s;
+}
+.userContent > span:first-child:hover,
+.userContent > span:last-child:hover {
+  color: rgb(78, 233, 78);
+  text-decoration: underline;
+  transition: 1s;
+}
 
+.quiceSearchCard {
+  /* opacity: 0.6; */
+  display: grid;
+  background-position: center;
+  height: 230px;
+  width: 200px;
+  text-align: center;
+  align-items: center;
+
+  border-radius: 10px;
+}
+.quiceSearchCard p {
+  font-weight: bold;
+  font-size: 25px;
+  transition: 2s;
+  color: rgb(236, 57, 185);
+}
+
+.quiceSearchCard:hover p {
+  opacity: 1;
+  transition: 0.5s;
+  transform: scale(1.05, 1.05);
+}
+.quickSeacrchContainer {
+  width: 88%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+@media only screen and (min-width: 500px) {
+  .quiceSearchCard p {
+    opacity: 0;
+  }
+}
 @media only screen and (max-width: 1000px) {
   .logo_container > p {
     display: none;
@@ -126,7 +174,7 @@ body {
     color: rgb(245, 239, 239);
     margin-right: 10px;
     width: 60%;
-    height: 40vh;
+    /* height: 40vh; */
   }
 }
 
@@ -135,6 +183,12 @@ body {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
+  }
+  .quiceSearchCard:hover {
+    opacity: 0.8;
+  }
+  .quiceSearchCard p {
+    display: block;
   }
 }
 @media only screen and (max-width: 400px) {

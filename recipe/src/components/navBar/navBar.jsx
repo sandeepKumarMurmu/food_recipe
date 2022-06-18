@@ -68,6 +68,9 @@ export const NavBar = () => {
       <div className="container-fluid">
         <div
           className="logo_container"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Home"
           onClick={() => {
             nav("/");
             SingleData({ ...check, status: false });
@@ -87,6 +90,9 @@ export const NavBar = () => {
             type="search"
             placeholder="Search"
             aria-label="Search"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Enter Recipe"
             onChange={(e) => {
               handelChange(e);
             }}
@@ -100,6 +106,8 @@ export const NavBar = () => {
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight"
+            data-bs-placement="top"
+            title="Filter"
           >
             Filter
           </button>
@@ -111,7 +119,7 @@ export const NavBar = () => {
           id="offcanvasRight"
           aria-labelledby="offcanvasRightLabel"
         >
-          <div className="offcanvas-header">
+          <div className="offcanvas-header bg-dark">
             <h5 id="offcanvasRightLabel">Filter</h5>
             <button
               type="button"
@@ -120,8 +128,8 @@ export const NavBar = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="offcanvas-body ">
-            <div className="d-grid gap-2">
+          <div className="offcanvas-body bg-dark">
+            <div className="d-grid gap-2 bg-dark">
               <Colapse props={health} />
               <Colapse props={mealType} />
               <Colapse props={diet} />

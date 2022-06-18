@@ -33,7 +33,7 @@ export const Colapse = ({ props }) => {
         {temp.join("")}
       </button>
       <div className="collapse" id={id}>
-        <div className="card card-body">
+        <div className="card card-body bg-dark">
           <ul style={{ listStyleType: "none" }}>
             {props.map((ele, i) => (
               <li

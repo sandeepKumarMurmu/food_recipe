@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 //importing components
 import { Card } from "../card/card";
+import { SearchComponent } from "../qickSearch/quickSearch";
 
 //main render function
 export const SearchPage = () => {
@@ -25,7 +26,13 @@ export const SearchPage = () => {
         {data.status ? (
           data.data.map((ele, i) => <Card key={i} data={ele} i={i} />)
         ) : (
-          <h1>{data.message}</h1>
+          <div>
+            <h1 style={{ width: "98%", textAlign: "center", margin: "auto" }}>
+              {data.message}
+            </h1>
+            <br />
+            <SearchComponent />
+          </div>
         )}
       </div>
     </>
