@@ -2,7 +2,7 @@
 
 <!--top-->
 
-[![Contributors](https://img.shields.io/badge/Repo-sandeepKumarMurmu-red)]("https://github.com/sandeepKumarMurmu/food_recipe/tree/main/recipe")
+[![Contributors](https://img.shields.io/badge/Repo-sandeepKumarMurmu-red)](https://github.com/sandeepKumarMurmu/food_recipe/tree/main/recipe)
 [![LinkedIn](https://img.shields.io/badge/Linkdin-Sandeep%20Kumar%20Murmu-blue)]("https://www.linkedin.com/in/sandeep-kumar-murmu-0567181a9/")
 [![LinkedIn](https://img.shields.io/badge/Portfolio-Sandeep-green)]("https://sandeep-delta.vercel.app/")
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
