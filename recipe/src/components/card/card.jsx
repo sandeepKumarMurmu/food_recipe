@@ -8,13 +8,9 @@ import { ActionCreators } from "../dataStore/store/actionCreator";
 
 //render function for search card
 export const Card = ({ data, i }) => {
-  console.log(data);
   const nav = useNavigate();
   const dispatch = useDispatch();
   const { SingleData } = bindActionCreators(ActionCreators, dispatch);
-
-  let id = "detail_" + i;
-  let ingredients = [...data.recipe.ingredients];
 
   //navigation function
   function navigateToDetailPage() {
@@ -22,8 +18,6 @@ export const Card = ({ data, i }) => {
     SingleData({ data, status: true });
   }
 
-  const nullImage =
-    "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg";
   let Lable = data.recipe.label.split(" ");
 
   return (
@@ -34,9 +28,9 @@ export const Card = ({ data, i }) => {
       }}
     >
       <img
-        src={data.recipe.images.REGULAR.url || nullImage}
+        src={data.recipe.images.REGULAR.url}
         className="card-img-top user_image"
-        alt="meal image"
+        alt={Lable.join(" ")}
       />
 
       <div className="card-body">
@@ -57,7 +51,7 @@ export const Card = ({ data, i }) => {
           <span
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title={"Calories" + "  " + Math.round(data.recipe.calories)}
+            title={"Calories  " + Math.round(data.recipe.calories)}
           >
             Calories
           </span>

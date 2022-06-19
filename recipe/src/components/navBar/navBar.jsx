@@ -5,6 +5,8 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useNavigate } from "react-router-dom";
+
+// dotenv.config();
 //importing components
 import { Button } from "../button/filterAction";
 import { Colapse } from "../poper/colaplse";
@@ -37,7 +39,7 @@ export const NavBar = () => {
           `https://api.edamam.com/api/recipes/v2?type=public&q=${e.target.value}&app_id=f7048fdb&app_key=%205e15ab95d8a05906e2b81cd43d450fc5`
         )
         .then(({ data }) => {
-          if (data.hits.length != 0) {
+          if (data.hits.length !== 0) {
             queryManagement({ q: e.target.value });
             AllData({
               data: [...data.hits],
@@ -65,7 +67,7 @@ export const NavBar = () => {
 
   return (
     <nav className="navbar navbar-light bg-dark user_nav">
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <div
           className="logo_container"
           data-bs-toggle="tooltip"

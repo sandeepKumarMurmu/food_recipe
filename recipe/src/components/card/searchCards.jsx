@@ -1,6 +1,6 @@
 //importing library property / methodes
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // impoting components
@@ -20,7 +20,7 @@ export const SearchCard = ({ data_1 }) => {
         `https://api.edamam.com/api/recipes/v2?type=public&q=${data_1.search}&app_id=f7048fdb&app_key=%205e15ab95d8a05906e2b81cd43d450fc5`
       )
       .then(({ data }) => {
-        if (data.hits.length != 0) {
+        if (data.hits.length !== 0) {
           queryManagement({ q: data_1.search });
           AllData({
             data: [...data.hits],

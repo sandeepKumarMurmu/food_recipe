@@ -30,7 +30,7 @@ export const Button = () => {
         `https://api.edamam.com/api/recipes/v2?type=public&app_id=f7048fdb&app_key=%205e15ab95d8a05906e2b81cd43d450fc5&${str}`
       )
       .then(({ data }) => {
-        if (data.hits.length != 0)
+        if (data.hits.length !== 0)
           AllData({
             data: [...data.hits],
             message: "success full",
