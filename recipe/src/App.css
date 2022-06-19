@@ -151,7 +151,8 @@ body {
   transform: scale(1.05, 1.05);
 }
 .quickSeacrchContainer {
-  width: 88%;
+  margin: auto;
+  width: 68%;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
