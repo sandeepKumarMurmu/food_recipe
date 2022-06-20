@@ -23,7 +23,7 @@
     <a href="https://github.com/sandeepKumarMurmu/food_recipe/tree/main/recipe"><strong>Source code»</strong></a>
     <br />
     <br />
-    <a href="recipe-puce.vercel.app/">Explore web-site</a>
+    <a href="https://recipe-puce.vercel.app/">Explore web-site</a>
     
   </p>
 </div>
